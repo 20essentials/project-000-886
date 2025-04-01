@@ -1,0 +1,86 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a,
+button,
+img {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  place-content: center;
+  background-image: linear-gradient(-20deg, #d558c8 0%, #24d292 100%);
+  display: grid;
+}
+
+.container {
+  --pad-gap: 1.3vmax;
+  height: 70vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-content: center;
+  place-items: center;
+  padding: var(--pad-gap);
+  gap: var(--pad-gap);
+}
+
+.card {
+  max-width: 10vmax;
+  max-height: 10vmax;
+  background-color: #fff4;
+  backdrop-filter: blur(30px);
+  border-radius: 0.7vmax;
+  padding: 1vmax;
+  position: relative;
+
+  .circle {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    animation: showCircle 1s linear forwards;
+    background: radial-gradient(#fff5 0%, transparent 70%);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.35vmax;
+    pointer-events: none;
+  }
+}
+
+@keyframes showCircle {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 10vmax;
+    height: 10vmax;
+    opacity: 0;
+  }
+}
